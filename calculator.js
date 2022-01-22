@@ -105,20 +105,30 @@ buttons.forEach(btn => {
                 }
                 equationArray[termPosition] = btn.textContent;
                 lastKeyOperator = true;
+            } else if (btn.textContent == "="){
+                if (lastKeyOperator != true){
+                
+                    let results = operate(equationArray);
+                    lastKeyOperator = false;
+                    termPosition = 0;
+                    if(!Number(results)){
+                        display.textContent = results;
+                        return;
+                    } else {
+                        equationArray[termPosition] = String(parseFloat(equationArray[termPosition]).toFixed(3));
+                    }
+                }
+            } else if (btn.textContent == "del"){
+                if (equationArray[termPosition].length <= 1){
+                    equationArray[termPosition] = "";
+                } else {
+                    equationArray[termPosition] = equationArray[termPosition].substring(0, equationArray[termPosition]-2);
+                }
             } else if (btn.textContent == "c" || btn.textContent == "on"){
                     equationArray = [];
                     equationArray.push("0");
                     lastKeyOperator = false;
                     termPosition = 0;
-
-            } else if (btn.textContent == "="){
-                if (lastKeyOperator != true){
-                
-                    equationArray = operate(equationArray);
-                    lastKeyOperator = false;
-                    termPosition = 0;
-                    equationArray[termPosition] = String(parseFloat(equationArray[termPosition]).toFixed(3));
-                }
             } else if (btn.textContent == "-/+"){
                 if (equationArray[termPosition] == "0"){
                     equationArray[termPosition] = "-";
