@@ -1,0 +1,68 @@
+body{
+    font-family: monospace;
+    columns: grey;
+}
+#calc-container{
+    display: grid;
+    grid-template-columns: 22% 22% 22% auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: grey;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 20px 10px 35px 10px;
+    border-radius: 10px;
+}
+#display{
+    overflow: hidden;
+    grid-column: 1 / span 4;
+    padding: 8px ;
+    margin: 10px;
+    height: 30px;
+    background-color: rgb(145, 159, 160);
+    border: rgba(0, 0, 0, 0.295) solid 3px;
+    border-radius: 3px;
+}
+#numpad{
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+#operators{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto;
+    row-gap: 10px;
+    margin: 0px;
+}
+#add{
+    grid-row: 4 / span 2;
+    background-color: rgb(72, 106, 156);
+}
+#total{
+    background-color: cornsilk;
+    color:black;
+}
+.btn{
+    color: white;
+    border: 1px;
+    border-top: solid 2px rgba(247, 244, 244, 0.395);
+    border-left: solid 2px rgba(206, 206, 206, 0.595);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12pt;
+    text-align: center;
+    background-color: rgba(85, 46, 82, 0.79);
+}
+.btn:hover{
+    background-color: rgba(77, 42, 88, 0.815);
+    border: 1px;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.395);
+    border-right: solid 2px rgba(0, 0, 0, 0.595);
+
+}
+
