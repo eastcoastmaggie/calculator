@@ -15,7 +15,9 @@ function multiply(a, b){
 }
 
 function divide(a, b){
-    return a / b;
+    if(b == 0){
+        return "Stop that!";
+    } else return a / b;
 }
 
 function operate(equation){
@@ -110,10 +112,13 @@ buttons.forEach(btn => {
                     termPosition = 0;
 
             } else if (btn.textContent == "="){
-                equationArray = operate(equationArray);
-                lastKeyOperator = false;
-                termPosition = 0;
-                equationArray[termPosition] = String(parseFloat(equationArray[termPosition]).toFixed(3));
+                if (lastKeyOperator != true){
+                
+                    equationArray = operate(equationArray);
+                    lastKeyOperator = false;
+                    termPosition = 0;
+                    equationArray[termPosition] = String(parseFloat(equationArray[termPosition]).toFixed(3));
+                }
             } else if (btn.textContent == "-/+"){
                 if (equationArray[termPosition] == "0"){
                     equationArray[termPosition] = "-";
